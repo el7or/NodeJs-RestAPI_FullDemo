@@ -59,7 +59,7 @@ exports.postRole = (req, res, next) => {
   Role.create({
     name: req.body.name,
     description: req.body.description,
-    //createdBy: req.userId
+    createdBy: req.userId
   })
     .then(result => {
       res.status(201).json({
@@ -93,7 +93,7 @@ exports.putRole = (req, res, next) => {
       }
       role.name = req.body.name;
       role.description = req.body.description;
-      //role.updatedBy: req.userId
+      role.updatedBy = req.userId;
       return role.save();
     })
     .then(result => {

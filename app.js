@@ -4,9 +4,9 @@ const path = require('path');
 const mongoose = require('mongoose');
 const multer = require('multer');
 
-// const authRoutes = require('./routes/auth');
-// const usersRoutes = require('./routes/users');
+const authRoutes = require('./routes/auth');
 const rolesRoutes = require('./routes/roles');
+// const usersRoutes = require('./routes/users');
 
 const app = express();
 const port = 8080;
@@ -30,10 +30,9 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.use('/role', feedRoutes);
-// app.use(authRoutes);
-// app.use(usersRoutes);
+app.use('/auth', authRoutes);
 app.use('/roles', rolesRoutes);
+// app.use(usersRoutes);
 
 app.use((error, req, res, next) => {
     console.error(error);

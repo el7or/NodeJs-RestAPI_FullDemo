@@ -9,15 +9,15 @@ const roleSchema = new Schema({
         type: String,
         required: true
     },
-    // createdBy: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'User',
-    //   required: true
-    // },
-    // updatedBy: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: 'User'
-    // }
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    updatedBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 },
     {
         timestamps: true,

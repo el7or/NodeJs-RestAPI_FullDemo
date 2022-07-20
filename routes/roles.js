@@ -32,18 +32,18 @@ const roleValidators = (isAdd) => {
 }
 
 // GET /roles
-router.get('/', rolesController.getRoles);
+router.get('/', isAuth, rolesController.getRoles);
 
 // GET /roles/5
-router.get('/:id', rolesController.getRole);
+router.get('/:id', isAuth, rolesController.getRole);
 
 // POST /roles
-router.post('/', [roleValidators(true)], rolesController.postRole);
+router.post('/', [isAuth, roleValidators(true)], rolesController.postRole);
 
 // PUT /roles/5
-router.put('/:id', [roleValidators(false)], rolesController.putRole);
+router.put('/:id', [isAuth, roleValidators(false)], rolesController.putRole);
 
 // DELETE /roles/5
-router.delete('/:id', rolesController.deleteRole);
+router.delete('/:id', [isAuth, isAdmin], rolesController.deleteRole);
 
 module.exports = router;
