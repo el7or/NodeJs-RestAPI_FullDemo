@@ -32,18 +32,28 @@ const roleValidators = (isAdd) => {
 }
 
 // GET /roles
-router.get('/', isAuth, rolesController.getRoles);
+router.get('/roles', isAuth, rolesController.getRoles
+    // #swagger.tags = ['Roles']
+);
 
 // GET /roles/5
-router.get('/:id', isAuth, rolesController.getRole);
+router.get('/role/:id', isAuth, rolesController.getRole
+    // #swagger.tags = ['Roles']
+);
 
 // POST /roles
-router.post('/', [isAuth, roleValidators(true)], rolesController.postRole);
+router.post('/role/', [isAuth, roleValidators(true)], rolesController.postRole
+    // #swagger.tags = ['Roles']
+);
 
 // PUT /roles/5
-router.put('/:id', [isAuth, roleValidators(false)], rolesController.putRole);
+router.put('/role/:id', [isAuth, roleValidators(false)], rolesController.putRole
+    // #swagger.tags = ['Roles']
+);
 
 // DELETE /roles/5
-router.delete('/:id', [isAuth, isAdmin], rolesController.deleteRole);
+router.delete('/role/:id', [isAuth, isAdmin], rolesController.deleteRole
+    // #swagger.tags = ['Roles']
+);
 
 module.exports = router;

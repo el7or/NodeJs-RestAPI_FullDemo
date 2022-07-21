@@ -68,10 +68,24 @@ const signupValidators = () => {
 }
 
 // POST /auth/login
-router.post('/login', loginValidator(), authController.login);
+router.post('/auth/login', loginValidator(), authController.login
+    // #swagger.tags = ['Auth']
+    // #swagger.summary = 'Some summary...'
+    // #swagger.description = 'Some description...'
+    //  #swagger.parameters['name'] = { description: 'Some description...' }
+    /*  #swagger.parameters['name', 'password'] = {
+                in: 'body',
+                description: 'Some description...',
+                schema: {
+                    $name: 'Ali',
+                    $password: 123456
+                }
+        } */
+);
 
 // POST /auth/signup
-router.post('/signup', signupValidators(), authController.signup
+router.post('/auth/signup', signupValidators(), authController.signup
+    // #swagger.tags = ['Auth']
 );
 
 module.exports = router;

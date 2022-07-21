@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const multer = require('multer');
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./swagger_output.json')
 
 const authRoutes = require('./routes/auth');
 const rolesRoutes = require('./routes/roles');
@@ -30,8 +32,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/auth', authRoutes);
-app.use('/roles', rolesRoutes);
+app.use(authRoutes);
+app.use(rolesRoutes);
 // app.use(usersRoutes);
 
 app.use((error, req, res, next) => {
@@ -41,6 +43,8 @@ app.use((error, req, res, next) => {
     const errors = error.data;
     res.status(status).json({ message: message, errors: errors });
 });
+
+app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerFile)); // => https://medium.com/swlh/automatic-api-documentation-in-node-js-using-swagger-dd1ab3c78284
 
 mongoose
     .connect(
