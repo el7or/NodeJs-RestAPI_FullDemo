@@ -7,11 +7,11 @@ const doc = {
         title: 'Rest API',
         description: '',
     },
-    host: !process.env.PORT ? 'localhost:8080' : 'https://node-mongoose-restapi.herokuapp.com',
-    schemes: ['http', 'https']
+    host: process.env.NODE_ENV === 'production' ? 'node-mongoose-restapi.herokuapp.com' : 'localhost:8080',
+    schemes: [process.env.NODE_ENV === 'production' ? 'https' : 'http']
 };
 
 swaggerAutogen(outputFile, endpointsFiles, doc)
-// .then(() => {
-//     require('./app.js')
-// })
+    .then(() => {
+        if (process.env.NODE_ENV === 'production') require('./app.js');
+    })

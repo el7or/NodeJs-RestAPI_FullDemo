@@ -8,9 +8,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production MONGO_USER=node_test MONGO_PASSWORD=node_test MONGO_DEFAULT_DATABASE=test-node node app.js",
+    "start": "NODE_ENV=production MONGO_USER=node_test MONGO_PASSWORD=node_test MONGO_DEFAULT_DATABASE=test-node node swagger.js",
     "start-server": "node app.js",
-    "dev": "node swagger.js && nodemon app.js"
+    "dev": "node swagger.js & nodemon app.js"
   },
   "author": "",
   "license": "ISC",
