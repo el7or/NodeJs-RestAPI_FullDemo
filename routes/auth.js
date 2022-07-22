@@ -78,7 +78,7 @@ router.post('/auth/login', loginValidator(), authController.login
                 description: 'Some description...',
                 schema: {
                     $name: 'Ali',
-                    $password: 123456
+                    $password: '123456'
                 }
         } */
 );

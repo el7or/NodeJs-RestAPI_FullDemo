@@ -8,7 +8,8 @@
   "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
   "paths": {
     "/auth/login": {
@@ -37,8 +38,8 @@
                   "example": "Ali"
                 },
                 "password": {
-                  "type": "number",
-                  "example": 123456
+                  "type": "string",
+                  "example": "123456"
                 }
               },
               "required": [

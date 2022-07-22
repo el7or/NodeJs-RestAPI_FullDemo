@@ -7,8 +7,8 @@ const doc = {
         title: 'Rest API',
         description: '',
     },
-    host: 'localhost:8080',
-    schemes: ['http'],
+    host: !process.env.PORT ? 'localhost:8080' : 'https://node-mongoose-restapi.herokuapp.com',
+    schemes: ['http', 'https']
 };
 
 swaggerAutogen(outputFile, endpointsFiles, doc)
