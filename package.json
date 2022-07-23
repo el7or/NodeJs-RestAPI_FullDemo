@@ -7,7 +7,7 @@
     "node": "16.15.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=test MONGO_USER=node_test MONGO_PASSWORD=node_test MONGO_DEFAULT_DATABASE=node_unit_test mocha --timeout 5000",
     "start": "NODE_ENV=production MONGO_USER=node_test MONGO_PASSWORD=node_test MONGO_DEFAULT_DATABASE=test-node node swagger.js",
     "start-server": "node app.js",
     "dev": "node swagger.js & nodemon app.js"
@@ -28,6 +28,9 @@
     "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.19",
+    "sinon": "^14.0.0"
   }
 }
